@@ -4,4 +4,4 @@
   become: yes
 
   roles:
-    - isntall_lets_encrypt
+    - install_lets_encrypt
