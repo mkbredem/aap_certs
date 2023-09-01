@@ -1,6 +1,5 @@
 ---
 # tasks file for install_lets_encrypt
----
 - name: Install EPEL for RHEL 8 repository
   dnf:
     name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
