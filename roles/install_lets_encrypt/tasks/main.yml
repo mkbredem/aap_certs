@@ -32,7 +32,7 @@
 - name: Install/Refresh core snap
   community.general.snap:
     name: core
-    state: latest
+    state: present
 
 - name: Install certbot classic snap
   community.general.snap:
