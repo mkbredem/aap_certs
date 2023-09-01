@@ -7,7 +7,4 @@
     state: started
   
 - name: Reboot the system
-  command: systemctl reboot
-  async: 0
-  poll: 0
-  ignore_errors: true
+  ansible.builtin.reboot:
