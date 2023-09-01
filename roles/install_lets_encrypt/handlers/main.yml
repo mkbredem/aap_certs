@@ -1,0 +1,13 @@
+---
+# handlers file for install_lets_encrypt
+- name: Enable and start snapd socket
+  systemd:
+    name: snapd.socket
+    enabled: yes
+    state: started
+  
+- name: Reboot the system
+  command: systemctl reboot
+  async: 0
+  poll: 0
+  ignore_errors: true

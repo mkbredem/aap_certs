@@ -1,0 +1,7 @@
+---
+- name: install and configure let's encrypt for AAP certs
+  hosts: all
+  become: yes
+
+  roles:
+    - isntall_lets_encrypt
