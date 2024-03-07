@@ -1,0 +1,9 @@
+---
+- name: refresh certs for AAP Components using Let's Encrypt (Controller, Private Automation Hub, EDA Controller)
+  hosts: aap_prod
+
+  tasks:
+    - debug:
+        var: ansible_facts
+
+    
