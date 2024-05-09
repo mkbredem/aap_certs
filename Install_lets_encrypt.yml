@@ -1,6 +1,6 @@
 ---
 - name: install and configure let's encrypt for AAP certs
-  hosts: all
+  hosts: "{{ target_hosts }}"
   become: yes
 
   roles:
