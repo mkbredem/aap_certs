@@ -32,15 +32,6 @@
 - name: Flush handlers manually
   meta: flush_handlers
 
-- name: reboot the server and waituntil it is back up before proceeding
-  # Content suggestion provided by Ansible Lightspeed
-  ansible.builtin.reboot:
-    reboot_timeout: 3600
-
-# - name: Install core snap
-#   community.general.snap:
-#     name: core
-
 - name: Install/Refresh core snap
   community.general.snap:
     name: core
@@ -63,7 +54,7 @@
     PATH: "{{ ansible_env.PATH }}"
 
 - name: Test certbot renewal in dry-run mode
-  command: certbot renew --dry-run
+  command: sudo certbot certonly --nginx -d $(hostname) --non-interactive --agree-tos --email mbredeme@redhat.com
   environment:
     PATH: "{{ ansible_env.PATH }}"
 
