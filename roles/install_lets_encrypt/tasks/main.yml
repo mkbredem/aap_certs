@@ -49,12 +49,12 @@
     state: link
 
 - name: Obtain SSL certificate using certbot and nginx
-  command: certbot certonly --nginx
+  command: sudo certbot certonly --nginx -d $(hostname) --non-interactive --agree-tos --email mbredeme@redhat.com
   environment:
     PATH: "{{ ansible_env.PATH }}"
 
 - name: Test certbot renewal in dry-run mode
-  command: sudo certbot certonly --nginx -d $(hostname) --non-interactive --agree-tos --email mbredeme@redhat.com
+  command: certbot renew --dry-run 
   environment:
     PATH: "{{ ansible_env.PATH }}"
 
