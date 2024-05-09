@@ -22,6 +22,16 @@
 - name: Flush handlers manually
   meta: flush_handlers
 
+- name: reboot the server and waituntil it is back up before proceeding
+  # Content suggestion provided by Ansible Lightspeed
+  ansible.builtin.reboot:
+    reboot_timeout: 3600
+  when:
+    - ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise
+      Linux'
+    - ansible_distribution_major_version == '8'
+
+
 - name: Create symbolic link for snap
   file:
     src: /var/lib/snapd/snap
