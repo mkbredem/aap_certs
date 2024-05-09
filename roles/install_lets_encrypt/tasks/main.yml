@@ -1,5 +1,12 @@
 ---
 # tasks file for install_lets_encrypt
+- name: disable_system_repo in /etc/dnf/plugins/subscirption-manager.conf
+  # Content suggestion provided by Ansible Lightspeed
+  ansible.builtin.lineinfile:
+    path: /etc/dnf/plugins/subscription-manager.conf
+    regexp: ^disable_system_repo
+    line: disable_system_repo=0
+
 - name: Install EPEL for RHEL 8 repository
   dnf:
     name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
